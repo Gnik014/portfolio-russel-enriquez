@@ -1,6 +1,13 @@
-# Loom scripts (~2 minutes each)
+# Walkthrough scripts
 
-Recording scripts for two short walkthroughs. Loom URLs are coming soon. Do **not** show `.env`, tokens, PATs, SSH keys, real client names, logos, production URLs, or identifiable report content on camera.
+Published, redacted walkthroughs are hosted on the portfolio site (not Loom):
+
+- Monitoring tool (about 1:00): https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4
+- Reporting portal (about 2:04): https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4
+
+They are also embedded on the [home](https://gnik014.github.io/portfolio-russel-enriquez/#walkthroughs) and [flagship](https://gnik014.github.io/portfolio-russel-enriquez/flagship/#walkthroughs) pages, and on the [reporting portal](https://gnik014.github.io/portfolio-russel-enriquez/work/ami.html) and [monitoring tool](https://gnik014.github.io/portfolio-russel-enriquez/work/ami-monitor.html) case studies.
+
+The notes below were the original recording plans. The published videos were edited from later recordings, with sensitive names and figures blurred. Do **not** show `.env`, tokens, PATs, SSH keys, real client names, logos, production URLs, or identifiable report content on camera.
 
 ---
 
@@ -28,7 +35,7 @@ Recording scripts for two short walkthroughs. Loom URLs are coming soon. Do **no
 
 ### Post-record
 
-- Paste the Loom URL into the `<LOOM_MONITORING_URL>` placeholder in `share-pack.md` when it is ready.
+- Published video: https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4
 
 ---
 
@@ -72,4 +79,4 @@ Do not start recording until every item is checked:
 
 ### Post-record
 
-- Paste the Loom URL into the `<LOOM_MARKET_RESEARCH_URL>` placeholder in `share-pack.md` when it is ready.
+- Published video: https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4

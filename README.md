@@ -10,8 +10,9 @@ A stranger should be able to see the stack and the business value in under five 
 
 - [Experience](EXPERIENCE.md)
 - [Flagship: Ops KPI cost & quality](portfolio/flagship/README.md) — sample retail/ops data in BigQuery, daily marts, Tableau Public, and a freshness monitor
+- [Walkthroughs](https://gnik014.github.io/portfolio-russel-enriquez/#walkthroughs) — redacted demos of the reporting portal and the monitoring tool (sensitive names and figures are blurred)
 - [Company-work case studies](portfolio/company-work/) — anonymized notes from work at KMC MAG Solutions (client: AMI), including data pipelines
-- [Share pack](portfolio/share-pack.md) — short outreach outline (Loom and Tableau workbook links coming soon)
+- [Share pack](portfolio/share-pack.md) — short outreach outline (Tableau workbook link coming soon)
 - [Skyward Tower](https://gnik014.github.io/portfolio-russel-enriquez/side-projects/skyward-tower.html) — personal side project: a Unity 6 3D action climber I built solo (unreleased; no public repo)
 - Static site (plain HTML): [home](index.html), [flagship](https://gnik014.github.io/portfolio-russel-enriquez/flagship/), [case studies](https://gnik014.github.io/portfolio-russel-enriquez/work/), [experience](https://gnik014.github.io/portfolio-russel-enriquez/experience/), [contact](https://gnik014.github.io/portfolio-russel-enriquez/contact/)
 

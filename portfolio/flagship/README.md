@@ -2,7 +2,7 @@
 
 > Public portfolio project: **sample retail/ops data -> BigQuery -> transform -> Tableau Public -> freshness monitor**.  
 > Built for strangers to grasp stack + business value in under 5 minutes.  
-> **Status:** Warehouse, transform, and freshness monitor are in place. Public GitHub repo and GitHub Pages site are live. Tableau Public workbook and Looms are coming soon.
+> **Status:** Warehouse, transform, and freshness monitor are in place. Public GitHub repo and GitHub Pages site are live. Tableau Public workbook is coming soon. Redacted walkthroughs of the reporting portal and the monitoring tool are on the live site.
 
 ## Problem
 
@@ -49,7 +49,7 @@ flowchart LR
 | Transform | BigQuery SQL views + partitioned mart tables in `ops_kpi_transform` (no Tableau Prep; thin dbt deferred) | Staging views: `stg_order_lines`, `stg_returns`, `stg_region_managers`. Three daily marts (partitioned on `order_date`): `mart_daily_ops_kpis`, `mart_daily_ops_by_region`, `mart_daily_ops_by_category`. Plus `mart_ops_combined`: one row per order line, 10,194 rows, 21 Orders fields + `regional_manager` + returned flags. Metric dictionary: `order_count`, `line_count`, `sales`, `profit`, `margin_pct`, `avg_ship_days`, `returned_order_count`, `return_rate` (ratios stored 0–1). |
 | BI | Tableau Public | Profile: https://public.tableau.com/app/profile/russel.king.enriquez7984/vizzes · workbook `<TABLEAU_PUBLIC_WORKBOOK_URL>` (coming soon — none published yet). |
 | AI / automation | Python freshness monitor, Application Default Credentials only (no secrets in repo) | Checks `raw_orders`, `raw_people`, `raw_returns`, and `fct_orders` against a 24h SLA and appends `ok` / `stale` / `error` rows to `ops_kpi_public.automation_freshness_log`. Transient BigQuery errors retry with backoff. Live run on **2026-11-06: 4/4 ok**. Script lives with the automation package (`freshness_monitor.py`); dry-run needs no credentials. |
-| Packaging | This README + Looms + company-work case studies | Monitoring Loom `<LOOM_MONITORING_URL>` (coming soon) · AMI portal Loom `<LOOM_MARKET_RESEARCH_URL>` (coming soon) · case studies in `../company-work/` |
+| Packaging | This README + walkthroughs + company-work case studies | [Monitoring walkthrough](https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4) · [Reporting portal walkthrough](https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4) · case studies in `../company-work/` |
 
 ## Outcome
 

@@ -2,9 +2,14 @@
 
 **Employer:** KMC MAG Solutions (client: AMI)  
 **Role in this work:** Data Analyst / engineer contributing to the client-facing reporting portal  
-**Visibility:** Private product. This page is a case study only — no repository, demo URL, or source is shared.
+**Visibility:** Private product. This page is a case study only — no repository, live product URL, or source is shared. A short redacted walkthrough is linked below.
 
 The AMI portal is a TypeScript/React application that lets market-intelligence clients build digital reports: widgets, charts, and PDF export of survey and research findings for major Australian lenders / clients.
+
+
+## Walkthrough
+
+[A short walkthrough of the market-research reporting portal. Sensitive names and figures are blurred.](https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4)
 
 ---
 

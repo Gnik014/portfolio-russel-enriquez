@@ -277,6 +277,30 @@ h3 {
   vertical-align: middle;
 }
 
+.demo-video {
+  margin: 0 0 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1.15rem 1.2rem;
+}
+.demo-video h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+.demo-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #111;
+  border: 1px solid var(--line);
+}
+.demo-video figcaption {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.prose .demo-video { margin: 0 0 1.5rem; }
+
 .prose p { margin: 0 0 1rem; }
 .prose p:last-child { margin-bottom: 0; }
 .prose strong { font-weight: 650; }

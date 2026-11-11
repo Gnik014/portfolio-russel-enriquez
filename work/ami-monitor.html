@@ -26,8 +26,17 @@
 <div class="prose">
 <p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)<br />
 <strong>Role in this work:</strong> Data Analyst / engineer on pipeline health, media audit, and truth comparison<br />
-<strong>Visibility:</strong> Private internal tool. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<strong>Visibility:</strong> Private internal tool. This page is a case study only — no repository, live product URL, or source is shared. A short redacted walkthrough is on this page.</p>
 <p>AMI Monitor is a TypeScript application (React frontend, Express backend) used by the team to audit data flowing into the AMI portal: email/ad capture health, media-feed review (including paywalled sites), and a truth-comparison check against the query layer.</p>
+
+<figure class="demo-video">
+  <h2>Walkthrough</h2>
+  <video controls preload="metadata" playsinline poster="../assets/video/monitoring-demo.jpg">
+    <source src="../assets/video/monitoring-demo.mp4" type="video/mp4" />
+    Sorry, your browser cannot play this video. You can <a href="../assets/video/monitoring-demo.mp4">download the walkthrough</a> instead.
+  </video>
+  <figcaption>A short walkthrough of the website and data-pipeline monitoring tool. Sensitive names and figures are blurred.</figcaption>
+</figure>
 <hr />
 <h2>Problem</h2>
 <p>Overnight capture and classification pipelines could fail quietly. Reviewers needed to see which emails or ads failed each stage, whether a site was paywalled, and whether warehouse KPIs still matched an expected “truth” table — without opening raw logs or treating every scoring anomaly as a real incident. Before Pipeline Health, triaging overnight capture failures took 1-2 days of work.</p>

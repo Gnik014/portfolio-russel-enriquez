@@ -11,9 +11,11 @@ Hi <NAME>,
 
 I build the layer between raw systems and decisions: BigQuery models, Tableau, and light AI/automation. Quick proof pack (under 5 minutes):
 
-1) **Looms**
-   - Monitoring (Tableau + SQL -> Slack alerts): <LOOM_MONITORING_URL>
-   - AMI portal (sanitized demo walkthrough, demo data only): <LOOM_MARKET_RESEARCH_URL>
+1) **Walkthroughs** (redacted; sensitive names and figures are blurred)
+   - Monitoring tool: https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4
+     (also on https://gnik014.github.io/portfolio-russel-enriquez/work/ami-monitor.html)
+   - Reporting portal: https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4
+     (also on https://gnik014.github.io/portfolio-russel-enriquez/work/ami.html)
 
 2) **Flagship GitHub — Ops KPI cost & quality (sample retail/ops -> BigQuery -> transform -> Tableau Public -> freshness monitor)**
    - https://github.com/Gnik014/portfolio-russel-enriquez
@@ -69,8 +71,8 @@ Do not send source or repo URLs. Employer line in every case study: **KMC MAG So
 
 | Placeholder | Status |
 |---|---|
-| `<LOOM_MONITORING_URL>` | Coming soon |
-| `<LOOM_MARKET_RESEARCH_URL>` | Coming soon (sanitized AMI portal demo) |
+| Monitoring walkthrough | https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4 |
+| Reporting portal walkthrough | https://gnik014.github.io/portfolio-russel-enriquez/assets/video/portal-demo.mp4 |
 | `<GITHUB_FLAGSHIP_URL>` | https://github.com/Gnik014/portfolio-russel-enriquez |
 | `<TABLEAU_PUBLIC_WORKBOOK_URL>` | Coming soon (no workbook published yet) |
 | `<METRICS_BANK>` | Optional extras; flagship scan bytes, freshness, and AMI Monitor triage time may be used |

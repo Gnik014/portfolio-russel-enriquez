@@ -2,9 +2,14 @@
 
 **Employer:** KMC MAG Solutions (client: AMI)  
 **Role in this work:** Data Analyst / engineer on pipeline health, media audit, and truth comparison  
-**Visibility:** Private internal tool. This page is a case study only — no repository, demo URL, or source is shared.
+**Visibility:** Private internal tool. This page is a case study only — no repository, live product URL, or source is shared. A short redacted walkthrough is linked below.
 
 AMI Monitor is a TypeScript application (React frontend, Express backend) used by the team to audit data flowing into the AMI portal: email/ad capture health, media-feed review (including paywalled sites), and a truth-comparison check against the query layer.
+
+
+## Walkthrough
+
+[A short walkthrough of the website and data-pipeline monitoring tool. Sensitive names and figures are blurred.](https://gnik014.github.io/portfolio-russel-enriquez/assets/video/monitoring-demo.mp4)
 
 ---
 
