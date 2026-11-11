@@ -59,7 +59,7 @@ I build the layer between raw systems and decisions: SQL/warehouse models, BI da
 | Area | Skills |
 |------|--------|
 | Data & warehouses | MS SQL, PostgreSQL, MySQL, Google BigQuery, ETL / pipeline maintenance |
-| BI & reporting | Tableau (dashboards, Prep, subscriptions), Power BI, Excel (advanced formulas, macros) |
+| BI & reporting | Tableau (dashboards, Tableau Prep, subscriptions), Power BI, Excel (advanced formulas, macros) |
 | AI & automation | Prompt engineering, Cursor for AI-assisted apps, process & email automation, Python (growing) |
 | Delivery | Stakeholder storytelling, junior coaching, quality control, project & workload management |
 
@@ -71,4 +71,4 @@ I build the layer between raw systems and decisions: SQL/warehouse models, BI da
 
 ---
 
-*Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.*
+*My CoreX Design Inc. (2020–2025) and Bigcat Software Solutions (2017–2020) experience is from the iGaming industry. The bullets below use general-industry terms (customers, product/catalog ranking) so the skills carry across to other industries.*
