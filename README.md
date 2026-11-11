@@ -4,6 +4,7 @@ Data Analyst · AI Automation · AI Development
 
 - Public repo: https://github.com/Gnik014/portfolio-russel-enriquez
 - Live site (GitHub Pages, free): https://gnik014.github.io/portfolio-russel-enriquez/
+- LinkedIn: https://www.linkedin.com/in/russel-king-enriquez-3507b7225
 
 A stranger should be able to see the stack and the business value in under five minutes.
 

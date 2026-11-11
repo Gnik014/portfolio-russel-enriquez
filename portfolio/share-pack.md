@@ -39,7 +39,7 @@ I build the layer between raw systems and decisions: BigQuery models, Tableau, a
 Thanks,
 Russel King Enriquez
 Data Analyst · AI Automation · AI Development
-kingenriquez01@gmail.com · General Trias, Cavite, PH
+kingenriquez01@gmail.com · LinkedIn: https://www.linkedin.com/in/russel-king-enriquez-3507b7225 · JobStreet: https://ph.jobstreet.com/profiles/russelking-enriquez-xp9xrq4wtz · General Trias, Cavite, PH
 ```
 
 ---
