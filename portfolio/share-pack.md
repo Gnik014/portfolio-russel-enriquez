@@ -16,7 +16,8 @@ I build the layer between raw systems and decisions: BigQuery models, Tableau, a
    - AMI portal (sanitized demo walkthrough, demo data only): <LOOM_MARKET_RESEARCH_URL>
 
 2) **Flagship GitHub — Ops KPI cost & quality (sample retail/ops -> BigQuery -> transform -> Tableau Public -> freshness monitor)**
-   - <GITHUB_FLAGSHIP_URL>
+   - https://github.com/Gnik014/portfolio-russel-enriquez
+   - Live site: https://gnik014.github.io/portfolio-russel-enriquez/
    - README walks problem -> architecture -> stack -> outcome (partitioned fact table cut a Q1 query from 646,869 bytes scanned to 27,820; 2026-11-06 freshness run 4/4 ok)
 
 3) **Tableau Public**
@@ -63,6 +64,6 @@ Do not send source or repo URLs. Employer line in every case study: **KMC MAG So
 |---|---|
 | `<LOOM_MONITORING_URL>` | Coming soon |
 | `<LOOM_MARKET_RESEARCH_URL>` | Coming soon (sanitized AMI portal demo) |
-| `<GITHUB_FLAGSHIP_URL>` | Coming soon |
+| `<GITHUB_FLAGSHIP_URL>` | https://github.com/Gnik014/portfolio-russel-enriquez |
 | `<TABLEAU_PUBLIC_WORKBOOK_URL>` | Coming soon (no workbook published yet) |
 | `<METRICS_BANK>` | Optional extras; flagship scan bytes, freshness, and AMI Monitor triage time may be used |

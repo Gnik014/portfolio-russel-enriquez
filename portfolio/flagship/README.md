@@ -2,7 +2,7 @@
 
 > Public portfolio project: **sample retail/ops data -> BigQuery -> transform -> Tableau Public -> freshness monitor**.  
 > Built for strangers to grasp stack + business value in under 5 minutes.  
-> **Status:** Warehouse, transform, and freshness monitor are in place. Public GitHub URL, Tableau Public workbook, and Looms are coming soon.
+> **Status:** Warehouse, transform, and freshness monitor are in place. Public GitHub repo and GitHub Pages site are live. Tableau Public workbook and Looms are coming soon.
 
 ## Problem
 
@@ -73,14 +73,15 @@ flowchart LR
 ## Repo layout
 
 ```text
-ops-kpi-public/          <GITHUB_FLAGSHIP_URL>
+ops-kpi-public/          https://github.com/Gnik014/portfolio-russel-enriquez
   README.md              <- this file
   sql/ or dbt/           transform
   scripts/               load + freshness monitor
   docs/                  cost notes, metric dictionary
 ```
 
-**GitHub URL:** `<GITHUB_FLAGSHIP_URL>` — coming soon.
+**GitHub URL:** https://github.com/Gnik014/portfolio-russel-enriquez  
+**Live site (GitHub Pages):** https://gnik014.github.io/portfolio-russel-enriquez/
 
 ## Safety
 
