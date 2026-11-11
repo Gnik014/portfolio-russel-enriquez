@@ -3,399 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Russel King Enriquez — Data Analyst · AI Automation · AI Development</title>
-  <meta name="description" content="Work experience portfolio: data analysis, BI leadership, ETL, and AI-assisted automation." />
-  <style>
-    :root {
-      --bg: #f3f0ea;
-      --bg-deep: #e7e2d8;
-      --ink: #1c2420;
-      --muted: #5a655e;
-      --line: #cfc8bb;
-      --accent: #0f6b5c;
-      --accent-soft: #d7ebe5;
-      --card: #fffdf8;
-      --max: 720px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(ellipse 80% 50% at 100% 0%, #d9ebe4 0%, transparent 55%),
-        radial-gradient(ellipse 60% 40% at 0% 20%, #efe6d4 0%, transparent 50%),
-        var(--bg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.55;
-    }
-
-    a { color: var(--accent); text-underline-offset: 3px; }
-    a:hover { color: #0a4f44; }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 2.5rem));
-      margin: 0 auto;
-      padding: 3.5rem 0 5rem;
-    }
-
-    header {
-      padding-bottom: 2.25rem;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 2.5rem;
-      animation: rise 0.7s ease both;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.85rem;
-    }
-
-    h1 {
-      font-family: Georgia, "Times New Roman", "Palatino Linotype", Palatino, serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      line-height: 1.15;
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    .tagline {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 38rem;
-      margin: 0 0 1.5rem;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem 1.25rem;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .contact a { font-weight: 500; text-decoration: none; border-bottom: 1px solid transparent; }
-    .contact a:hover { border-bottom-color: currentColor; }
-
-    nav.toc {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.75rem 0 0;
-    }
-
-    nav.toc a {
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink);
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 0.4rem 0.75rem;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    nav.toc a:hover { background: var(--accent-soft); border-color: #9fc9bd; }
-
-    section { margin-bottom: 3rem; animation: rise 0.7s ease both; }
-    section:nth-of-type(1) { animation-delay: 0.05s; }
-    section:nth-of-type(2) { animation-delay: 0.1s; }
-    section:nth-of-type(3) { animation-delay: 0.15s; }
-    section:nth-of-type(4) { animation-delay: 0.2s; }
-
-    h2 {
-      font-family: Georgia, "Times New Roman", "Palatino Linotype", Palatino, serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .lede {
-      color: var(--muted);
-      margin: 0 0 1.5rem;
-      font-size: 0.98rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.28rem 0.6rem;
-      background: var(--accent-soft);
-      color: #0a4f44;
-      border: 1px solid #b5d9cf;
-    }
-
-    .job {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 1.35rem 1.4rem 1.25rem;
-      margin-bottom: 1rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .job:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(28, 36, 32, 0.06);
-    }
-
-    .job-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.35rem 1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .job h3 {
-      font-family: Georgia, "Times New Roman", "Palatino Linotype", Palatino, serif;
-      font-size: 1.12rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .dates {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .org {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 0 0 0.85rem;
-    }
-
-    .focus {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.55rem;
-    }
-
-    .job ul {
-      margin: 0;
-      padding-left: 1.1rem;
-    }
-    .job li {
-      margin-bottom: 0.4rem;
-      font-size: 0.92rem;
-    }
-    .job li::marker { color: var(--accent); }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .skill-block {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 1rem 1.05rem;
-    }
-    .skill-block h3 {
-      margin: 0 0 0.45rem;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    .skill-block p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      animation: rise 0.7s ease 0.25s both;
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 520px) {
-      .wrap { width: calc(100% - 1.75rem); padding-top: 2.25rem; }
-      .job { padding: 1.1rem; }
-    }
-  </style>
+  <title>Portfolio — Russel King Enriquez</title>
+  <meta name="description" content="Data Analyst, AI Automation, and AI Development. A one-person data team: warehouse, BI, and automation." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
     <header>
-      <p class="eyebrow">Work experience portfolio</p>
+      <p class="eyebrow">Portfolio</p>
       <h1>Russel King Enriquez</h1>
-      <p class="tagline">
-        Data Analyst, AI Automation, and AI Development —
-        turning messy operational data into trusted reporting, pipelines, and AI-assisted workflows.
-      </p>
-      <div class="contact">
-        <a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a>
-        <span>+63 908 872 4375</span>
-        <span>General Trias, Cavite, PH</span>
-      </div>
-      <nav class="toc" aria-label="On this page">
-        <a href="#positioning">Positioning</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+      <p class="tagline">Data Analyst, AI Automation, and AI Development — turning messy operational data into trusted reporting, pipelines, and AI-assisted workflows.</p>
+      <nav class="toc" aria-label="Site">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="flagship/">Flagship</a>
+        <a href="work/">Case studies</a>
+        <a href="experience/">Experience</a>
+        <a href="side-projects/skyward-tower.html">Side project</a>
+        <a href="contact/">Contact</a>
       </nav>
     </header>
+    <main id="main">
 
-    <section id="positioning">
-      <h2>What I do</h2>
-      <p class="lede">
-        I build the layer between raw systems and decisions: SQL/warehouse models, BI dashboards,
-        scheduled automations, and AI-assisted tools that cut manual reporting work.
-        ~8 years across analytics, BI leadership, and data engineering — currently shipping client
-        reporting, BigQuery pipelines, and Cursor-based AI apps.
-      </p>
-      <div class="pill-row">
-        <span class="pill">Data Analyst</span>
-        <span class="pill">AI Automation</span>
-        <span class="pill">AI Development</span>
-        <span class="pill">Data Engineering</span>
-        <span class="pill">BI Leadership</span>
-      </div>
-    </section>
+      <section id="pitch">
+        <p class="lede">I build the layer between raw systems and decisions: SQL and warehouse models, BI dashboards, scheduled automations, and AI-assisted tools that cut manual reporting work. About eight years across analytics, BI leadership, and data engineering — currently shipping client reporting, BigQuery pipelines, and Cursor-based AI apps.</p>
+        <div class="pill-row">
+          <span class="pill">Data Analyst</span>
+          <span class="pill">AI Automation</span>
+          <span class="pill">AI Development</span>
+          <span class="pill">Data Engineering</span>
+          <span class="pill">BI Leadership</span>
+        </div>
+        <div class="claim">
+          <p>I work as a <strong>one-person data team</strong>: warehouse the facts once, model trustworthy daily KPIs, put an executive story on Tableau, and wire a small automation that proves the pipeline is alive.</p>
+        </div>
+      </section>
 
-    <section id="experience">
-      <h2>Selected work experience</h2>
-      <p class="lede">
-        Framed for product, SaaS, fintech, and operations analytics roles — not industry-specific product names.
-      </p>
+      <section id="highlights" aria-label="Selected work">
+        <h2>Selected work</h2>
+        <div class="card-grid">
+          <article class="teaser">
+            <h3 class="teaser-title">Ops KPI cost &amp; quality</h3>
+            <p>Flagship: sample retail/ops data in BigQuery, daily marts, Tableau Public, and a freshness monitor. A partitioned fact table cut a Q1 scan from 646,869 bytes to 27,820.</p>
+            <p><a href="flagship/">Read the flagship project</a></p>
+          </article>
+          <article class="teaser">
+            <h3 class="teaser-title">KMC MAG Solutions (client: AMI)</h3>
+            <p>Eight anonymized case studies: the reporting portal, query layer, monitors and pipelines, site admin, and how I build.</p>
+            <p><a href="work/">Read the case studies</a></p>
+          </article>
+          <article class="teaser">
+            <h3 class="teaser-title">Experience</h3>
+            <p>BI leadership at CoreX Design Inc. (2020–2025) and Bigcat Software Solutions (2017–2020), plus current analytics engineering work.</p>
+            <p><a href="experience/">Read experience</a></p>
+          </article>
+          <article class="teaser">
+            <h3 class="teaser-title">Skyward Tower</h3>
+            <p>A personal side project: a Unity 6 3D action climber I built solo, with AI pair programming. Unreleased; no public repo.</p>
+            <p><a href="side-projects/skyward-tower.html">Read the side project</a></p>
+          </article>
+        </div>
+      </section>
 
-      <article class="job">
-        <div class="job-top">
-          <h3>Data Analyst · Data Engineer</h3>
-          <span class="dates">Jul 2025 – Present</span>
-        </div>
-        <p class="org">KMC MAG Solutions</p>
-        <p class="focus">Data analysis · ETL · AI development</p>
-        <ul>
-          <li>Own client-facing visualization and reporting so stakeholders get consistent, decision-ready views.</li>
-          <li>Maintain ETL and data pipelines in <strong>Google BigQuery</strong> — reliable refresh, modeling, and handoff to BI.</li>
-          <li>Apply <strong>AI prompt engineering</strong> and ship internal/client <strong>web apps with Cursor</strong> to speed analysis and reduce repetitive build work.</li>
-          <li>Bridge analyst and engineer workflows: define metrics, keep pipelines healthy, and surface results in dashboards.</li>
-        </ul>
-      </article>
+      <section id="coming-soon" aria-label="Coming soon">
+  <h2>Walkthroughs</h2>
+  <p class="lede">These embeds will land here once the workbook and Looms are recorded. Nothing behind them is paid or required to read the rest of the site.</p>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Tableau Public workbook</h3>
+    <p>The flagship Ops KPI workbook will be embedded here when it is published. The <a href="https://public.tableau.com/app/profile/russel.king.enriquez7984/vizzes">Tableau Public profile</a> is already live; no vizzes are published yet.</p>
+  </aside>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Loom — monitoring tool</h3>
+    <p>A short walkthrough of the Tableau and SQL monitoring layer that posts Slack alerts when a rule fires.</p>
+  </aside>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Loom — AMI portal</h3>
+    <p>A sanitized demo walkthrough of the AMI digital-report portal, using a demo account and demo data only.</p>
+  </aside>
+</section>
 
-      <article class="job">
-        <div class="job-top">
-          <h3>Assistant Manager, Business Intelligence</h3>
-          <span class="dates">Aug 2020 – Jun 2025</span>
-        </div>
-        <p class="org">CoreX Design Inc.</p>
-        <p class="focus">BI leadership · automation · stakeholder insight</p>
-        <ul>
-          <li>Led BI delivery for multi-stakeholder reporting: priorities, quality bar, and on-time insight packs.</li>
-          <li>Designed and maintained interactive <strong>Tableau</strong> dashboards; automated email subscriptions so leaders got KPIs without manual pulls.</li>
-          <li>Built and governed Tableau data sources from <strong>MS SQL</strong>, <strong>PostgreSQL</strong>, and related warehouses using Tableau Prep flows.</li>
-          <li>Partnered with operators and managers to turn vague asks into metrics, automated reports, and process improvements.</li>
-          <li>Trained and coached junior analysts on workload, accuracy, and how to explain findings to non-technical audiences.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-top">
-          <h3>Supervisor, Business Intelligence</h3>
-          <span class="dates">Jul 2018 – Aug 2020</span>
-        </div>
-        <p class="org">Bigcat Software Solutions</p>
-        <p class="focus">Team delivery · reporting standards · SQL/BI</p>
-        <ul>
-          <li>Supervised day-to-day BI output: monitored report quality, accuracy, and SLA for recurring packs.</li>
-          <li>Standardized how the team built SQL-backed Tableau sources so dashboards stayed trustworthy as volume grew.</li>
-          <li>Coordinated assignments across junior staff to hit organizational reporting objectives under changing priorities.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-top">
-          <h3>Senior Data Analyst, Business Intelligence</h3>
-          <span class="dates">Jun 2017 – Jul 2018</span>
-        </div>
-        <p class="org">Bigcat Software Solutions</p>
-        <p class="focus">Data analysis · dashboards · process value</p>
-        <ul>
-          <li>Delivered analytical problem-solving across shifting business priorities with clear stakeholder presentations.</li>
-          <li>Built reports that improved decisions, automated manual steps, or otherwise added measurable team value.</li>
-          <li>Translated technical findings into plain language for non-technical partners.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-top">
-          <h3>Operations Analyst</h3>
-          <span class="dates">Aug 2012 – Jun 2017</span>
-        </div>
-        <p class="org">Shang Software Solutions</p>
-        <p class="focus">Real-time decisioning · KPI discipline</p>
-        <ul>
-          <li>Made high-frequency operational decisions under live constraints — strengthened judgment on risk, timing, and trade-offs.</li>
-          <li>Worked from live performance signals and targets; foundation for later BI and automation work.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="skills">
-      <h2>Tools &amp; strengths</h2>
-      <div class="skills-grid">
-        <div class="skill-block">
-          <h3>Data &amp; warehouses</h3>
-          <p>MS SQL · PostgreSQL · MySQL · Google BigQuery · ETL / pipeline maintenance</p>
-        </div>
-        <div class="skill-block">
-          <h3>BI &amp; reporting</h3>
-          <p>Tableau (dashboards, Prep, subscriptions) · Power BI · Excel (advanced formulas, macro automation)</p>
-        </div>
-        <div class="skill-block">
-          <h3>AI &amp; automation</h3>
-          <p>Prompt engineering · Cursor for AI-assisted app development · process &amp; email automation · Python (growing)</p>
-        </div>
-        <div class="skill-block">
-          <h3>Delivery</h3>
-          <p>Stakeholder storytelling · junior coaching · quality control · project &amp; workload management</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <article class="job">
-        <div class="job-top">
-          <h3>B.S. Computer Science</h3>
-          <span class="dates">2008 – 2012</span>
-        </div>
-        <p class="org">Pamantasan ng Lungsod ng Muntinlupa</p>
-      </article>
-    </section>
-
+    </main>
     <footer>
-      Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.
-      English (fluent) · Filipino (native).
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
     </footer>
   </div>
 </body>

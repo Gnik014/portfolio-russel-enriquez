@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tableau Cloud site admin — Russel King Enriquez</title>
+  <meta name="description" content="Structured workbook library, archives, source transitions, and Tableau-versus-query-layer checks." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>Tableau Cloud site admin</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Tableau Cloud site administration and workbook library management   <strong>Visibility:</strong> Process and library case study only. No client names, published workbook links, or server URLs.</p>
+<p>Alongside building the AMI portal, I administered AMI’s Tableau Cloud site — the reporting library clients and internal analysts used before (and alongside) the portal.</p>
+<hr />
+<h2>Problem</h2>
+<p>AMI ships several research products, each with current workbooks, personalised packs, PDF-extract variants, and older copies. Without a structured library, data-source transitions and “which file is live?” questions become risky, and there is no clean way to compare a Tableau metric to the newer warehouse query layer.</p>
+<h2>What I managed</h2>
+<p>A structured workbook library across more than six report products, using generic product names only:</p>
+<ul>
+<li>broker survey (residential and commercial)</li>
+<li>consumer survey</li>
+<li>brand intelligence</li>
+<li>adviser survey</li>
+<li>tech review</li>
+<li>third-party lending report (and related public-data or client-page packs, held separately)</li>
+</ul>
+<p>Within that library I kept:</p>
+<ul>
+<li><strong>Personalised workbooks</strong> and <strong>PDF-extract workbooks</strong> in their own folders so a client-ready pack is not confused with the canonical product file</li>
+<li><strong>Old-version archiving</strong>, so superseded workbooks leave the live product folder but remain recoverable</li>
+<li><strong>Data-source transition workbooks</strong>, used when a product’s extract or live source had to move from one month’s cut to the next without breaking published views</li>
+<li><strong>A Tableau-versus-query-layer ground-truth project</strong>, where the same consumer-survey and broker-survey metrics were compared between Tableau and the warehouse MCP/query layer before trusting the portal</li>
+</ul>
+<p>I do not share client-branded packs, request folders, or row-level extracts.</p>
+<h2>Stack</h2>
+<p>Tableau Cloud (workbooks, extracts, and project folders); Tableau Desktop for library maintenance; comparison against the BigQuery-backed query layer used by the AMI portal.</p>
+<h2>Impact</h2>
+<p>Editors and analysts can find the current workbook for a product, keep personalised and PDF variants from overwriting it, archive safely, and check Tableau figures against the query layer during the portal transition.</p>
+<h2>Sanitized screenshots that would help</h2>
+<p>For a review pack or Loom, capture only dummy or fully blurred client views. Prefer a personal/demo site if one exists.</p>
+<table><thead><tr><th>Shot</th><th>What to show</th><th>What to blur or exclude</th></tr></thead><tbody><tr><td>1. Site project list</td><td>Top-level Tableau Cloud projects named with generic product labels (or renamed for the shot)</td><td>Real client project names, user names, site URL, org ID</td></tr><tr><td>2. One product folder</td><td>Canonical workbooks vs “Personalised” vs “PDF extract” vs “Old versions” subfolders</td><td>Workbook titles that include a client or brand; thumbnails with logos or figures</td></tr><tr><td>3. Archive folder</td><td>An “Old versions” list that makes the retention pattern obvious</td><td>Dates or titles that identify a client pack; preview thumbnails</td></tr><tr><td>4. Data-source transition</td><td>A transition workbook open on the Data Source tab (generic field names only)</td><td>Live server/host names, extract paths, credentials, warehouse project IDs</td></tr><tr><td>5. Ground-truth comparison</td><td>A simple side-by-side of a generic KPI from Tableau and from the query layer (demo numbers or fully blurred values)</td><td>Real client filters, lender names, exact published scores, internal tool URLs</td></tr></tbody></table>
+<p>This case study contains no source, repository links, credentials, hostnames, client names, or folder counts.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

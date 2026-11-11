@@ -26,10 +26,12 @@ I build the layer between raw systems and decisions: BigQuery models, Tableau, a
 
 4) **Company work (private, case studies)**
    - Employer: KMC MAG Solutions (client: AMI). I contribute to the AMI portal (TypeScript/React digital reports), a Node/BigQuery MCP query layer (broker-survey, regulatory, and legal-sector survey datasets), and an internal pipeline-health / media / truth-comparison monitor.
-   - Related case studies also cover an ad/newsletter email capture pipeline, a media-mention RSS pipeline into BigQuery, Tableau Cloud site administration, and a short “How I build at AMI” workflow note (GitHub flow, Actions, AgentOS specs, LangChain/LangSmith, Cloud Run).
+   - Related case studies also cover an ad/newsletter email capture pipeline, a media-mention RSS pipeline into BigQuery, analytics-engineering data pipelines, Tableau Cloud site administration, and a short “How I build at AMI” workflow note (GitHub flow, Actions, AgentOS specs, LangChain/LangSmith, Cloud Run).
    - Private repos are not shared. Anonymized case studies can be sent on request. No client or brand names, source, or internal URLs.
 
-5) **Outcome language**
+5) **Side project (not the headline):** Skyward Tower ? a Unity 6 3D action climber I built solo with AI pair programming. Short note: https://gnik014.github.io/portfolio-russel-enriquez/side-projects/skyward-tower.html (unreleased; no public repo).
+
+6) **Outcome language**
    - Same pattern I use professionally: reliable warehouse refresh, decision-ready BI, and tooling that cuts repetitive analysis work.
    - Flagship cost/bytes and freshness are in the README. On AMI Monitor, overnight capture triage dropped from 1-2 days of work to an hour at most, usually about 30 minutes.
    - Other measured figures: <METRICS_BANK>
@@ -55,6 +57,8 @@ These notes can be attached or quoted in outreach. They are not public product r
 | Media-mention RSS pipeline | `portfolio/company-work/rss-media-mentions.md` | RSS and Google Alerts into BigQuery, brand tracking, a Windows feed app, and a mention dashboard |
 | How I build at AMI | `portfolio/company-work/how-i-build.md` | Branch-to-staging-to-production workflow with Actions, Husky, AgentOS, and Cloud Run |
 | Tableau Cloud site admin | `portfolio/company-work/tableau-site-admin.md` | Structured workbook library, archives, source transitions, and Tableau-vs-query-layer checks |
+| Data pipelines | `portfolio/company-work/data-pipelines.md` | dbt-style layered BigQuery SQL, a survey-platform-to-warehouse pipeline, quality fixes, and rollback-safe deploys |
+| Skyward Tower (personal side project) | `portfolio/side-projects/skyward-tower.md` | Solo Unity 6 3D action climber with a toy-diorama look; only the later v1.1.0 balance plan is still in the design phase |
 
 Do not send source or repo URLs. Employer line in every case study: **KMC MAG Solutions (client: AMI)**.
 

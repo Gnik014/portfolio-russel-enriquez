@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMI portal — Russel King Enriquez</title>
+  <meta name="description" content="Production digital-report widgets, PDF export fidelity, and chart editor work on a TypeScript/React portal." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>AMI portal</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Data Analyst / engineer contributing to the client-facing reporting portal   <strong>Visibility:</strong> Private product. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<p>The AMI portal is a TypeScript/React application that lets market-intelligence clients build digital reports: widgets, charts, and PDF export of survey and research findings for major Australian lenders / clients.</p>
+<hr />
+<h2>Problem</h2>
+<p>Client reports had to look as polished in a live presentation and a PDF as they did in the editor. Several report types still depended on Tableau-style layouts (lender crosstabs, level-of-service stars, market-wide broker comments) that the portal could not yet reproduce faithfully. Editors also needed per-page written analysis and control over what appeared in the export, without those choices breaking layout, typography, or filters.</p>
+<h2>What I built</h2>
+<p>I did not build the portal from scratch. My work focused on digital-report authoring, chart widgets, and PDF-export quality. These widgets and PDF fixes are in production.</p>
+<ul>
+<li><strong>New report widgets.</strong> A lender-crosstab block that lists every lender in grouped categories with period columns and a grand-total row, rendered from the normal multi-brand KPI response so view, present, share, and PDF all use the same data path. A star-rating block that bands a percentage service metric into a five-star scale, plus making that chart type available in the editor (not only via the agent/API).</li>
+<li><strong>Market-wide comment themes.</strong> A “General (all lenders)” feedback focus so broker comment widgets can show market-wide themes instead of a single primary brand, including title handling so the card does not still name one lender.</li>
+<li><strong>Per-page analysis.</strong> An Analysis section under each report page (generated from that page’s chart data, then editable), plus a switch to hide the box in view, present, share links, and PDF without deleting the stored text.</li>
+<li><strong>PDF and presentation fidelity.</strong> JPEG as well as PNG artwork pages (upload, placement, and wait-for-load in export); even side margins on scaled slides; consistent Analysis typography after per-page scale-to-fit; pairing of leftover half- and third-width tiles so they sit side by side the way the editor does; crosstab header separators that still print in PDF.</li>
+<li><strong>Chart editor controls.</strong> Custom drag-to-reorder sort for bar and star-rating charts; a scale-axis toggle that is reachable from widget options; data-label modes including “primary brand at every period”; area-chart labels on comparison series (not only the primary); scatter-matrix “general” label sizing; stacked facet defaults and PDF spacing; competitor colour fallback when the viewer’s competitive set does not overlap the chart; periods restored on the axis for multi-brand KPI trend bars (with an opt-in to group by brand); regulatory Top N ranking controls scoped to the regulatory dataset, and series labelled when the query layer returns identifiers instead of names.</li>
+<li><strong>Correct data into notes and tooltips.</strong> Server-side expansion of brand presets before KPI fetches, so analyst notes and report coverage see the full lender list rather than only the primary brand plus averages. Segment-breakdown bars routed to the segment transformer. General-population denominators shown in tooltips. HTML stripped from chart callouts so interpretation text does not render as markup.</li>
+</ul>
+<p>I used AI pair programming with Cursor and Claude on this work.</p>
+<h2>Stack</h2>
+<p>TypeScript, React, and the portal’s existing chart/widget design system; digital-report view/present/PDF export (Chromium print path); JSON display options and widget query contracts; integration with the company’s MCP/KPI query layer for multi-brand and regulatory queries.</p>
+<h2>Impact</h2>
+<p>These production changes let report editors ship Tableau-like lender tables, service-star charts, market-wide comments, and per-page analysis as first-class portal pages. Export quality improved: artwork that used to go missing now loads, slide margins stay even, header separators print, and typography no longer shrinks unevenly from page to page. Analyst notes that previously covered only the primary brand now include the full lender preset.</p>
+<p>This case study contains no source, repository links, credentials, hostnames, or project identifiers.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

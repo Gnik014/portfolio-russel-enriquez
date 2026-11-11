@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMI Monitor — Russel King Enriquez</title>
+  <meta name="description" content="Pipeline health, paywalled media review, and truth comparison on an internal TypeScript audit tool." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>AMI Monitor</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Data Analyst / engineer on pipeline health, media audit, and truth comparison   <strong>Visibility:</strong> Private internal tool. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<p>AMI Monitor is a TypeScript application (React frontend, Express backend) used by the team to audit data flowing into the AMI portal: email/ad capture health, media-feed review (including paywalled sites), and a truth-comparison check against the query layer.</p>
+<hr />
+<h2>Problem</h2>
+<p>Overnight capture and classification pipelines could fail quietly. Reviewers needed to see which emails or ads failed each stage, whether a site was paywalled, and whether warehouse KPIs still matched an expected “truth” table — without opening raw logs or treating every scoring anomaly as a real incident. Before Pipeline Health, triaging overnight capture failures took 1-2 days of work.</p>
+<h2>What I built</h2>
+<p>I did not build the whole monitor. My work covered three areas:</p>
+<ul>
+<li><strong>Email / ad pipeline health.</strong> Replaced earlier quality reports with a Capture-focused pipeline health view, then extended scoring through later overnight stages (verify through creative identity). Failing checks list the underlying emails or ads (sender, subject, sent/captured, and links to the captured page and screenshot). Capture scores publisher captures separately from discovery lookups; inbox double-check matches on message identity or subject plus sent time over a short recent window. Scoring fixes after an overnight investigation: do not treat a known publisher as “unknown” when its real sending domain already has a rule; score only publisher captures as in-scope; treat “nothing eligible” as unknown rather than a hard fail; allow morning-window crop and brand-match records for older items still waiting on that step. Shared domain rules (including a for-review status) read the same domain table as the pipeline and are subdomain-aware. UI: pass/fail colour that ignores unknown when choosing the pass tone, and overnight windows shown in Australia/Sydney rather than UTC.</li>
+<li><strong>Brand reference data.</strong> Brand logo management and advertiser alias review, including inactive logo status and a refreshed alias count.</li>
+<li><strong>Media monitor and paywalled sites.</strong> Date filters and article-source visibility; a paywalled-site list (add from an article, loading state, and a clear “paywalled website” label beside the URL in the list). Completeness and queue refresh on login plus a manual refresh, and optimistic updates so an approval does not require a full list reload. Audit metadata on new paywalled-site rows.</li>
+<li><strong>Truth comparison.</strong> Comparison coverage for commercial and consumer-lender modules, including batched KPI calls, fallback brands/metrics when bulk options are empty, and end-of-month date ranges. Correct identifier column for a consumer truth table, and empty-chunk handling when the query layer returns “no data.” Summary views that roll results up by metric or brand (overall / metrics / brand). Compatibility routes so a production 404 on the comparison API was resolved. A TypeScript type clash that had broken the Cloud Build compile for a related report-monitor route.</li>
+</ul>
+<p>I used AI pair programming with Cursor and Claude on this work.</p>
+<h2>Stack</h2>
+<p>TypeScript, React, Vite, Tailwind, TanStack Query, and Recharts on the frontend; Express and BigQuery on the backend; Cloud Scheduler for overnight jobs; Cloud Build / container deploy for the API. Auth is shared with the AMI portal (admin-only audit pages).</p>
+<h2>Impact</h2>
+<p>Operators can see overnight pipeline health stage by stage, mark paywalled sources in the media queue, and compare portal metrics to a truth table. False fails from discovery rows, timezone display, and empty-result handling are reduced. Before Pipeline Health, triaging overnight capture failures took 1-2 days of work; now it takes an hour at most, usually about 30 minutes.</p>
+<p>This case study contains no source, repository links, credentials, hostnames, or project identifiers.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

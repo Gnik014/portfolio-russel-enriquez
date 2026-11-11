@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ad / newsletter email capture — Russel King Enriquez</title>
+  <meta name="description" content="Publisher-aware capture, verification retries, brand-match shadow path, and keep-warm scheduling." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>Ad / newsletter email capture</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Data Analyst / engineer on the email capture and brand-matching pipeline   <strong>Visibility:</strong> Private product. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<p>This pipeline captures advertising and newsletter emails, classifies them, detects ads, and matches advertisers to a brand registry in BigQuery so AMI reporting stays complete and consistent.</p>
+<hr />
+<h2>Problem</h2>
+<p>Overnight email capture could miss publisher sends, drop batches, or stall later stages. Brand matching often left events, industry bodies, and other non-brands in a permanent “needs review” state, which then failed health checks. A cold Cloud Run instance could shut down while capture was still writing, which looked like a blank capture day with no obvious cause.</p>
+<h2>What I built</h2>
+<p>I did not create the email pipeline from scratch. My work, from late 2025 into 2026, focused on capture quality, verification reliability, safer brand matching, and operational keep-warm:</p>
+<ul>
+<li><strong>Publisher-aware Capture.</strong> Selection prefers allowlisted publishers and older uncaptured mail, instead of simply taking the most recently arrived messages. Leftover senders can be stored as metadata-only discovery rows so domain review still sees real sending domains. Duplicate newsletter copies are dropped, and calendar-day filters are applied before caps.</li>
+<li><strong>Readable newsletter screenshots.</strong> First-pass newsletter screenshots are sliced so advertiser names stay legible for detection, rather than shrinking a full page into one unreadable image.</li>
+<li><strong>Verification retries and queue ordering.</strong> Verification uses stage-specific retry timestamps, harder retry behaviour, and stricter queue ordering so later stages do not run ahead of a ready verify step. Related reliability work included resolving HTML before shadow verification, atomic verification status, and retries on transient crop-API failures.</li>
+<li><strong>Brand Match shadow pipeline and not-a-brand rules.</strong> An isolated shadow brand-matching path lets a new matcher run without blocking production. Reviews can now mark events, industry bodies, and non-financial sponsors as a terminal “not a brand” outcome instead of leaving them in review forever (publishers can still stay in review when they may be registry brands). I also fixed text-only and zero-ad queue blockages, advertiser backfill, logo-reference matching, and alias resolution.</li>
+<li><strong>Keep-warm schedulers and failure alerting.</strong> Cloud Scheduler jobs raise a minimum instance floor over the overnight capture window in Australia/Sydney, then release it afterward, so background capture is not treated as idle and stopped mid-batch. Job failures raise an alert, because a silent scale-up miss reproduces the same outage. Deploy guidance records that a deploy must not overwrite that floor during the keep-warm window.</li>
+<li><strong>Pipeline summary email.</strong> The morning summary reports whether the overnight keep-warm floor actually held, so a blank capture day can be traced to a scaling miss rather than looking like “no emails.” The email still sends if that lookup fails, and says so.</li>
+</ul>
+<p>I used AI pair programming with Cursor and Claude on this work.</p>
+<h2>Stack</h2>
+<p>Node.js (ES modules) on Cloud Run; IMAP and Gmail API for capture; BigQuery and Cloud Storage for results; Cloud Scheduler for pipeline and keep-warm jobs; LLM-assisted classification and brand review; Cloud Build for deploys.</p>
+<h2>Impact</h2>
+<p>Capture is less likely to skip publisher mail or lose a morning batch. Advertiser review no longer piles up non-brands that fail nightly health. Operators get a summary that explains keep-warm and pipeline health, and verification and brand-match queues recover instead of stalling.</p>
+<p>This case study contains no source, repository links, credentials, hostnames, or project identifiers.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

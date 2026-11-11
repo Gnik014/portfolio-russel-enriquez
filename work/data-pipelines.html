@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data pipelines — Russel King Enriquez</title>
+  <meta name="description" content="dbt-style layered BigQuery SQL, a survey-platform-to-warehouse pipeline, quality fixes, and rollback-safe deploys." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>Data pipelines</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Analytics engineering for a market-research client   <strong>Visibility:</strong> Private, shared repository. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<p>This work lives in a shared monorepo of BigQuery SQL and Node pipelines for survey and brand-tracking data. I contributed analytics-engineering pieces there; I did not author the whole codebase. The transforms are <strong>dbt-style layered SQL models</strong> (staging, reshape, marts, and dimension and fact tables), not a dbt project.</p>
+<hr />
+<h2>Problem</h2>
+<p>Market-research data needed a repeatable path from a survey platform into trustworthy warehouse tables. Loads had to be checked before they landed, and undone if something went wrong. Quality issues in joins, flags, and mappings could silently pollute downstream marts.</p>
+<h2>What I built and owned</h2>
+<ul>
+<li><strong>Survey-platform-to-BigQuery pipeline.</strong> I built an end-to-end pipeline that lands a new brand-tracking product in BigQuery. That work included discovery and label-mapping notes, weighting and staging-comparison documentation, layered SQL transforms, a weighting merge script, and a Node pipeline runner. The transforms stage respondents, reshape brand and media data from wide to long, assemble brand-tracking and omnibus tables, and reconcile months and metrics.</li>
+<li><strong>Production-safe deploys.</strong> For that pipeline I used a backup before writing, preflight checks, append, an enrichment patch, verify queries, and a rollback script for each step.</li>
+<li><strong>Data-quality fixes.</strong> I fixed join patterns in append scripts that were producing bad rows, corrected brand-name prioritization and item-type filtering, and corrected NPS flags for text-labeled ratings, with a migration and a summary note. I also fixed an append script.</li>
+<li><strong>Dimension maintenance.</strong> I added new brands to the brand dimension and brand-tracking tables, and fixed a mapping join between lenders and brands.</li>
+<li><strong>Operations-report fixes.</strong> I stopped a duplicate daily operations report caused by an in-process scheduler, and fixed weekly survey-target counting in that daily report.</li>
+</ul>
+<p>The rest of the monorepo is shared work. Changes went through pull requests. Migrations are documented, and production changes are treated as rollback-first.</p>
+<h2>Stack</h2>
+<p>Google BigQuery (dbt-style layered SQL: staging, wide-to-long reshape, marts, and dimension/fact tables); Node.js for pipeline runners and backup / preflight / verify / rollback scripts.</p>
+<h2>Impact</h2>
+<p>A new brand-tracking product can move from the survey platform into verified warehouse tables, deploys can be preflighted and rolled back, and several silent quality issues in joins, flags, and mappings no longer land in downstream tables.</p>
+<p>This case study contains no source, repository links, credentials, hostnames, vendor names, or unconfirmed figures.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

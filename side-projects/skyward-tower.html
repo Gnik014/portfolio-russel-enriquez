@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyward Tower — personal side project — Russel King Enriquez</title>
+  <meta name="description" content="A personal side project: a Unity 6 3D action climber built solo, with AI pair programming. Unreleased." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Personal side project</p>
+      <h1>Skyward Tower</h1>
+      <p class="tagline">A 3D action climber with a toy-diorama look, built solo in Unity 6 with AI pair programming.</p>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html" class="is-active" aria-current="page">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="note"><p>This is a <strong>personal side project</strong>, not the headline of the portfolio. The game is unreleased. There is no public repository link.</p></div>
+<div class="prose">
+<p>This is a side project, not the headline of the portfolio. I built the game myself, solo, with AI pair programming in Cursor and Claude. I include it here because the same habits I use in data and automation work — closed-form models, caps, verification scripts, and a shared spec — show up in how I design and tune it.</p>
+<h2>What I built</h2>
+<p>Skyward Tower is a 3D action climber with a toy-diorama look, made in Unity 6 (URP). The pitch is simple: climb the tower, reach the sky. A town hub sits between runs, and loot only banks when you clear a floor. Several job classes can switch mid-run; physical and astral matchups shape combat; each floor draws from a species roster and ends in a boss room. Progression comes from banded equipment, socketed stones, pets, and refinement.</p>
+<p>I took it from a Phase A scaffold, to a playable tower slice, then town, loot and pets, then class visual effects, then procedural floors. There is a Windows build and a Steamworks integration checklist. The game is <strong>unreleased</strong> and is not a public product. I am not linking a repository.</p>
+<h2>v1.1.0 balance plan (design phase)</h2>
+<p>Only this later chapter is still in the design phase. I directed six AI design agents (Player, Monsters, Effects, Stones, Equipment, Game Balance) against one shared Markdown plan, with the live Unity systems treated as read-only ground truth. Coordination used dependency notes, a decisions log, and hash-checked edits: each agent re-read the live file and its hash before writing, then merged, so concurrent changes stayed coherent. Python verification scripts re-check a “balance contract” after those specialist edits.</p>
+<p>The transferable part is the systems modeling. Damage is a closed-form expression, for example</p>
+<p><code>max(1, floor(ATK × skill × matchup × K/(K+DEF) × crit × final))</code> with <code>K = 10×(level+1)</code></p>
+<p>Resists stack as <code>1 − Π(1−R)</code> with a hard ceiling. The contract sets expected player and monster stats at band midpoints. Difficulty is defined by hits-to-kill and hits-to-die targets, with a minimum loadout for the medium band. Species shapes are normalized across power tiers. Equipment uses one global tuning knob (band unit × piece weight × rarity × refine) so a single change can be verified against the contract instead of retuning every piece by hand.</p>
+<h2>Stack</h2>
+<p>Unity 6 / C# (URP), a Markdown design plan, Python verification and solvers, and the same kind of spec-driven workflow I use in professional data work.</p>
+<p>This note contains no repository links, build artifacts, or unpublished numeric tables.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ops KPI cost &amp; quality — Russel King Enriquez</title>
+  <meta name="description" content="Flagship project: sample retail/ops data in BigQuery, daily marts, Tableau Public, and a freshness monitor." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Flagship project</p>
+      <h1>Ops KPI cost &amp; quality</h1>
+      <p class="tagline">A one-person data team pattern: warehouse the facts once, model daily KPIs, tell the story on Tableau Public, and prove the pipeline is alive.</p>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/" class="is-active" aria-current="page">Flagship</a>
+        <a href="../work/">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<blockquote><p>Public portfolio project: <strong>sample retail/ops data -&gt; BigQuery -&gt; transform -&gt; Tableau Public -&gt; freshness monitor</strong>.  </p><p>Built for strangers to grasp stack + business value in under 5 minutes.  </p><p><strong>Status:</strong> Warehouse, transform, and freshness monitor are in place. Public GitHub repo and GitHub Pages site are live. Tableau Public workbook and Looms are coming soon.</p></blockquote>
+<h2>Problem</h2>
+<p>Operators and analysts often live in disconnected exports: yesterday’s CSV, a fragile spreadsheet, and a dashboard that refreshes “sometime.” Cost and quality questions — <em>Are we fulfilling on time? Is return rate eating margin? Did last night’s load even land?</em> — take too long to answer and are easy to get wrong.</p>
+<p>This flagship shows a <strong>one-person data team</strong> pattern: warehouse the facts once, model trustworthy daily KPIs, put an executive story on Tableau Public, and wire a small automation that proves the pipeline is alive.</p>
+<h2>Architecture</h2>
+
+<div class="flow" role="img" aria-label="Architecture: Tableau Sample Superstore to BigQuery to marts, then Tableau Public and a freshness monitor">
+  <div class="flow-col">
+    <h4>Source</h4>
+    <p>Tableau Sample Superstore</p>
+    <p>Orders / People / Returns</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>BigQuery — ops_kpi_public</h4>
+    <p>raw_orders, raw_returns, raw_people</p>
+    <p>fct_orders (monthly partition on order_date; cluster region, category, ship_mode)</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>ops_kpi_transform</h4>
+    <p>Staging views</p>
+    <p>Daily marts (overall, region, category)</p>
+    <p>mart_ops_combined — one row per order line</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>BI and automation</h4>
+    <p>Tableau Public — exec view and deep dive</p>
+    <p>Python freshness monitor (automation_freshness_log)</p>
+  </div>
+</div>
+
+<h2>Stack</h2>
+<table><thead><tr><th>Layer</th><th>Choice</th><th>Notes / links</th></tr></thead><tbody><tr><td>Source</td><td>Tableau Sample Superstore (Orders, People, Returns)</td><td>Fictitious retail sample shipped with Tableau. <strong>No formal open-data license</strong> in Tableau’s primary docs — treat as sample/demo data, not redistributable open data. Docs: Tableau Public sample data and Tableau “find good datasets” help. Prior thelook ecommerce source was superseded.</td></tr><tr><td>Warehouse</td><td>Google BigQuery dataset <code>ops_kpi_public</code> (US)</td><td>Raw: <code>raw_orders</code> (10,194 rows), <code>raw_returns</code> (296), <code>raw_people</code> (4). Fact: <code>fct_orders</code> (10,194 rows, same grain as <code>raw_orders</code>: one row per order line, key <code>row_id</code>). Full GCP project ID omitted from this public README.</td></tr><tr><td>Raw modeling</td><td>Monthly partition + cluster</td><td><code>fct_orders</code> is partitioned by month on <code>order_date</code> and clustered by <code>region</code>, <code>category</code>, <code>ship_mode</code>.</td></tr><tr><td>Cost note</td><td>Representative Q1 query</td><td>Same ops-KPI query (Q1 window on <code>order_date</code>, with returns): <strong>646,869 bytes</strong> scanned on unpartitioned <code>raw_orders</code> vs <strong>27,820 bytes</strong> on <code>fct_orders</code> (~95.7% fewer bytes processed). On-demand billing still applied the 10 MB minimum to both jobs in this sandbox; partition/cluster matter more as tables grow past that minimum.</td></tr><tr><td>Transform</td><td>BigQuery SQL views + partitioned mart tables in <code>ops_kpi_transform</code> (no Tableau Prep; thin dbt deferred)</td><td>Staging views: <code>stg_order_lines</code>, <code>stg_returns</code>, <code>stg_region_managers</code>. Three daily marts (partitioned on <code>order_date</code>): <code>mart_daily_ops_kpis</code>, <code>mart_daily_ops_by_region</code>, <code>mart_daily_ops_by_category</code>. Plus <code>mart_ops_combined</code>: one row per order line, 10,194 rows, 21 Orders fields + <code>regional_manager</code> + returned flags. Metric dictionary: <code>order_count</code>, <code>line_count</code>, <code>sales</code>, <code>profit</code>, <code>margin_pct</code>, <code>avg_ship_days</code>, <code>returned_order_count</code>, <code>return_rate</code> (ratios stored 0–1).</td></tr><tr><td>BI</td><td>Tableau Public</td><td>Profile: <a href="https://public.tableau.com/app/profile/russel.king.enriquez7984/vizzes">https://public.tableau.com/app/profile/russel.king.enriquez7984/vizzes</a> · workbook <code><span class="soon-inline">Coming soon</span></code> (coming soon — none published yet).</td></tr><tr><td>AI / automation</td><td>Python freshness monitor, Application Default Credentials only (no secrets in repo)</td><td>Checks <code>raw_orders</code>, <code>raw_people</code>, <code>raw_returns</code>, and <code>fct_orders</code> against a 24h SLA and appends <code>ok</code> / <code>stale</code> / <code>error</code> rows to <code>ops_kpi_public.automation_freshness_log</code>. Transient BigQuery errors retry with backoff. Live run on <strong>2026-11-06: 4/4 ok</strong>. Script lives with the automation package (<code>freshness_monitor.py</code>); dry-run needs no credentials.</td></tr><tr><td>Packaging</td><td>This README + Looms + company-work case studies</td><td>Monitoring Loom <code><span class="soon-inline">Coming soon</span></code> (coming soon) · AMI portal Loom <code><span class="soon-inline">Coming soon</span></code> (coming soon) · case studies in <code>../company-work/</code></td></tr></tbody></table>
+<h2>Outcome</h2>
+<ul>
+<li>A stranger can follow warehouse -&gt; transform -&gt; dashboard -&gt; freshness log from this README (Tableau workbook coming soon).</li>
+<li>Partitioning and clustering cut a representative Q1 query from <strong>646,869</strong> to <strong>27,820</strong> bytes scanned.</li>
+<li>Daily marts and <code>mart_ops_combined</code> give BI named metrics (orders, sales, profit, margin, ship days, returns) without guessing columns.</li>
+<li>The 2026-11-06 freshness run logged <strong>4/4 ok</strong> for the four watched tables in <code>automation_freshness_log</code>.</li>
+</ul>
+<p><strong>Business value:</strong> fewer manual pulls, clearer daily ops KPIs, and a portable pattern already used in professional BigQuery + Tableau + automation work (see <code>the experience page</code> and <code>../company-work/</code>).</p>
+<h2>Related work</h2>
+<table><thead><tr><th>Area</th><th>Status</th></tr></thead><tbody><tr><td>Database</td><td><code>ops_kpi_public</code> loaded and documented (row counts, partition/cluster, cost note). Project ID kept off this public page.</td></tr><tr><td>Transform</td><td>Staging + three daily marts + <code>mart_ops_combined</code> in <code>ops_kpi_transform</code>; metric dictionary available for BI.</td></tr><tr><td>BI</td><td>Tableau Public workbook URL coming soon.</td></tr><tr><td>AI Automation</td><td>Freshness monitor live-logged 2026-11-06 (4/4 ok).</td></tr><tr><td>Case studies</td><td><code>../company-work/</code></td></tr></tbody></table>
+<h2>Repo layout</h2>
+<pre><code>ops-kpi-public/          https://github.com/Gnik014/portfolio-russel-enriquez
+  README.md              &lt;- this file
+  sql/ or dbt/           transform
+  scripts/               load + freshness monitor
+  docs/                  cost notes, metric dictionary</code></pre>
+<p><strong>GitHub URL:</strong> <a href="https://github.com/Gnik014/portfolio-russel-enriquez">https://github.com/Gnik014/portfolio-russel-enriquez</a>   <strong>Live site (GitHub Pages):</strong> <a href="https://gnik014.github.io/portfolio-russel-enriquez/">https://gnik014.github.io/portfolio-russel-enriquez/</a></p>
+<h2>Safety</h2>
+<p>Sample/demo Superstore data only for this flagship — not a formal open license. Never commit service-account keys, the full GCP project ID in casual outreach if avoidable, client extracts, or gaming/prod credentials.</p>
+</div>
+
+      <section id="coming-soon" aria-label="Coming soon">
+  <h2>Walkthroughs</h2>
+  <p class="lede">These embeds will land here once the workbook and Looms are recorded. Nothing behind them is paid or required to read the rest of the site.</p>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Tableau Public workbook</h3>
+    <p>The flagship Ops KPI workbook will be embedded here when it is published. The <a href="https://public.tableau.com/app/profile/russel.king.enriquez7984/vizzes">Tableau Public profile</a> is already live; no vizzes are published yet.</p>
+  </aside>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Loom — monitoring tool</h3>
+    <p>A short walkthrough of the Tableau and SQL monitoring layer that posts Slack alerts when a rule fires.</p>
+  </aside>
+  <aside class="coming-soon">
+    <p class="coming-soon-label">Coming soon</p>
+    <h3>Loom — AMI portal</h3>
+    <p>A sanitized demo walkthrough of the AMI digital-report portal, using a demo account and demo data only.</p>
+  </aside>
+</section>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

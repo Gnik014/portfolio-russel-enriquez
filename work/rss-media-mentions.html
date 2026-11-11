@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media-mention RSS pipeline — Russel King Enriquez</title>
+  <meta name="description" content="RSS and Google Alerts into BigQuery, brand tracking, a Windows feed app, and a mention dashboard." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>Media-mention RSS pipeline</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Role in this work:</strong> Data Analyst / engineer who built the September 2025 media-mention ingestion pipeline   <strong>Visibility:</strong> Private product. This page is a case study only — no repository, demo URL, or source is shared.</p>
+<p>This pipeline pulls RSS and Google Alerts feeds into BigQuery so AMI can track media mentions of major Australian lenders / clients, flag new brands, and review coverage by industry and bank relevance.</p>
+<hr />
+<h2>Problem</h2>
+<p>Media mentions lived in inboxes and one-off spreadsheets. Adding a newly tracked brand meant hand-building alert feeds, and analysts had no consistent warehouse table or dashboard for sentiment, industry category, or whether an article was relevant to banking.</p>
+<h2>What I built</h2>
+<p>In September 2025 I built and deployed this pipeline:</p>
+<ul>
+<li><strong>RSS and Google Alerts into BigQuery.</strong> Extraction scripts pull configured feeds, handle pagination and errors, and load articles into warehouse tables for raw and enhanced mention data.</li>
+<li><strong>Brand tracking and new-brand detection.</strong> Brands marked for RSS tracking in the warehouse generate alert feeds automatically. The pipeline can detect brands that appear in coverage but are not yet on the tracking list, so the registry can be extended deliberately rather than by manual inbox scanning.</li>
+<li><strong>Bank-relevance and industry-category fields.</strong> Enhanced columns classify whether an article is relevant to banking and which industry category it belongs to, alongside sentiment and channel-type enrichment used by the dashboard.</li>
+<li><strong>Cloud Run, Cloud Scheduler, and Secret Manager.</strong> The job runs on a schedule in the cloud so it does not depend on a laptop being open. Feed configuration and credentials sit in Secret Manager rather than in source. I also wrote setup, monitoring, and troubleshooting notes for that deploy path.</li>
+<li><strong>Windows app to update feeds.</strong> A desktop app lets an operator enable or disable brand tracking, regenerate alert feeds, update configuration, and trigger the cloud job without editing files by hand. It supports search, bulk updates, and dry-run or full runs, and can be built as a standalone executable.</li>
+<li><strong>Mention dashboard.</strong> A Python web dashboard (<code>rss_dashboard</code>) reads the BigQuery tables and shows feed performance, sentiment, industry breakdown, and search/filter views so analysts can inspect the warehouse without writing SQL every time.</li>
+</ul>
+<p>I used LLMs to classify and clean messy media-mention text before analysis.</p>
+<p>I used AI pair programming with Cursor on this work.</p>
+<h2>Stack</h2>
+<p>Python; Google BigQuery; Cloud Run (containerised job) and Cloud Scheduler; Secret Manager; a Windows desktop app (Python GUI, optional packaged executable); a Flask/Plotly dashboard for exploration.</p>
+<h2>Impact</h2>
+<p>Tracked-brand mentions land in the warehouse on a schedule, new brands can be spotted from coverage, and analysts can filter by bank relevance and industry category in a dashboard instead of rebuilding extracts. Operators can update which brands are tracked from a desktop app without a deploy for every list change.</p>
+<p>This case study contains no source, repository links, credentials, hostnames, or project identifiers.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

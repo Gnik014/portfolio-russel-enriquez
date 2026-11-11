@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I build at AMI — Russel King Enriquez</title>
+  <meta name="description" content="Branch-to-staging-to-production workflow with Actions, Husky, AgentOS, and Cloud Run." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">KMC MAG Solutions (client: AMI)</p>
+      <h1>How I build at AMI</h1>
+      <nav class="toc" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../flagship/">Flagship</a>
+        <a href="../work/" class="is-active" aria-current="page">Case studies</a>
+        <a href="../experience/">Experience</a>
+        <a href="../side-projects/skyward-tower.html">Side project</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+<div class="prose">
+<p><strong>Employer:</strong> KMC MAG Solutions (client: AMI)   <strong>Visibility:</strong> Process note for portfolio review. No repository links, credentials, or internal URLs.</p>
+<p>This is the engineering workflow I learned and used while helping build the AMI portal and its warehouse query layer from early product work into a staged, production deploy path. I use AI pair programming with Cursor and Claude as part of this loop, not as a substitute for review.</p>
+<hr />
+<h2>Problem</h2>
+<p>A client-facing analytics portal and a BigQuery query service cannot be shipped from a laptop-only workflow. Changes need a repeatable path: specify the work, implement it on a branch, prove it, preview it, then promote to staging and production without mixing secrets into source.</p>
+<h2>How I work</h2>
+<p><strong>Specify, then build.</strong> Product intent lives in AgentOS: a mission, roadmap, and tech-stack note, plus dated feature specs. A typical spec folder has a <code>spec</code>, a <code>tasks</code> breakdown, and often an <code>orchestration.yml</code> that sequences implementation. I treat that as the contract for a change before opening a branch.</p>
+<p><strong>GitHub flow.</strong> Work happens on feature branches. Pull requests go to <code>staging</code> first, then to <code>main</code> for production. I do not push directly to production branches.</p>
+<p><strong>Guards on the way in.</strong> Husky pre-commit hooks catch basic local issues before a push. GitHub Actions on the PR and on <code>staging</code> / <code>main</code> run:</p>
+<ul>
+<li>staging previews for a PR, so reviewers can see the AMI portal change without merging to production</li>
+<li>a security audit workflow</li>
+<li>contract tests (especially on the query layer, where widget and dataset contracts must stay in parity)</li>
+<li>project-field automation so issues and PRs stay labelled in the delivery board</li>
+</ul>
+<p><strong>AI in the loop.</strong> I pair with Cursor (rules and skills in the repo) and Claude (including worktrees for isolated changes). For the AMI portal chat experience, the team integrated LangChain and traces work in LangSmith (confirmed). I still read diffs, run tests, and go through PR review.</p>
+<p><strong>Ship with containers.</strong> Backend deploys use Docker images built by Cloud Build and served on Cloud Run. Secrets belong in a secret manager or the host environment, never in git. Frontend hosting is separate from the Cloud Run API.</p>
+
+<div class="flow" role="img" aria-label="Workflow: AgentOS spec to feature branch, staging preview, then production deploy">
+  <div class="flow-col">
+    <h4>Specify</h4>
+    <p>AgentOS spec and tasks</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>Build</h4>
+    <p>Feature branch</p>
+    <p>Husky pre-commit hooks</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>Review</h4>
+    <p>PR into staging</p>
+    <p>GitHub Actions: preview, security audit, contract tests, board automation</p>
+  </div>
+  <span class="flow-arrow" aria-hidden="true">→</span>
+  <div class="flow-col">
+    <h4>Promote</h4>
+    <p>Merge to staging and deploy (Cloud Build / Cloud Run)</p>
+    <p>PR into main and production deploy</p>
+  </div>
+</div>
+
+<h2>Stack</h2>
+<p>GitHub (branches, PRs, Actions), Husky, AgentOS specs, Cursor and Claude, LangChain with LangSmith for chat, Docker, Cloud Build, and Cloud Run — around TypeScript/React on the AMI portal and Node.js plus BigQuery on the query layer.</p>
+<h2>Impact</h2>
+<p>This workflow is how portal and query-layer changes reach clients: specified, reviewed, previewed on staging, then promoted. It keeps AI-assisted work inside the same branch-and-PR discipline as any other change.</p>
+<p>This note contains no source, repository links, credentials, hostnames, or project identifiers.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Open to Data Analyst, AI Automation, and AI Development roles outside online gaming.</p>
+      <p><a href="mailto:kingenriquez01@gmail.com">kingenriquez01@gmail.com</a> · <a href="https://github.com/Gnik014">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
