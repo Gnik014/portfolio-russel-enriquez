@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture — fictional demo</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-flag">Demo with fictional data</div>
+  <header class="demo-chrome">
+    <a class="demo-brand" href="index.html">Digital reports</a>
+    <nav class="demo-actions" aria-label="Demo">
+      <a class="btn" href="index.html">Report list</a>
+      <a class="btn" href="report.html">Open sample report</a>
+    </nav>
+  </header>
+  <main class="demo-wrap" id="architecture">
+    <p class="eyebrow">Architecture</p>
+    <h1>How a report is assembled</h1>
+    <p class="lede">A simplified sketch of the portal path: editors compose widgets, a query layer reads BigQuery, and the same page can be viewed, presented, or exported as a PDF.</p>
+    <div class="flow flow-wide" id="architecture-flow">
+      <div class="flow-col" id="flow-editor">
+        <h4>Editor</h4>
+        <p>Compose the report page and choose which widgets appear.</p>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+      <div class="flow-col" id="flow-widgets">
+        <h4>Widgets</h4>
+        <p>Comparison tables, service scores, comment themes, and analysis notes.</p>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+      <div class="flow-col" id="flow-query">
+        <h4>Query layer</h4>
+        <p>Each widget asks the query layer for the figures it needs.</p>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+      <div class="flow-col" id="flow-bigquery">
+        <h4>BigQuery</h4>
+        <p>Stored results sit in BigQuery, ready for the page to read.</p>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">&rarr;</div>
+      <div class="flow-col" id="flow-outputs">
+        <h4>View / Present / PDF</h4>
+        <p>One report page supports on-screen view, a present layout, and a print-to-PDF export.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northwind Retail Banking Q3 Pulse — fictional demo</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-flag">Demo with fictional data</div>
+  <header class="demo-chrome no-print">
+    <a class="demo-brand" href="index.html">Digital reports</a>
+    <nav class="demo-actions" aria-label="Demo">
+      <a class="btn" href="index.html">Report list</a>
+      <a class="btn" href="architecture.html">Architecture</a>
+      <button type="button" class="btn" id="preview-print" aria-pressed="false">Preview print layout</button>
+      <button type="button" class="btn btn-primary" id="export-pdf">Export PDF</button>
+    </nav>
+  </header>
+  <main class="demo-wrap" id="report">
+    <header class="print-header">
+      <p class="print-title">Northwind Retail Banking Q3 Pulse</p>
+      <p class="print-sub">Demo with fictional data</p>
+    </header>
+
+    <p class="eyebrow no-print">Sample report</p>
+    <h1>Northwind Retail Banking Q3 Pulse</h1>
+    <p class="lede">Fictional brand comparison for a made-up quarterly pulse. Figures are invented so the widgets can be shown without live client data.</p>
+
+    <div class="widget-grid">
+      <section class="widget" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Brand comparison</h2>
+        <table class="compare" id="comparison-table">
+          <thead>
+            <tr>
+              <th data-sort data-type="text" scope="col">Brand</th>
+              <th class="num" data-sort data-type="num" scope="col">Satisfaction</th>
+              <th class="num" data-sort data-type="num" scope="col">Recommend</th>
+              <th class="num" data-sort data-type="num" scope="col">Service</th>
+              <th data-sort data-type="text" scope="col">Band</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Northwind</td>
+              <td class="num" data-value="82">82</td>
+              <td class="num" data-value="79">79</td>
+              <td class="num" data-value="4.3">4.3</td>
+              <td>Strong</td>
+            </tr>
+            <tr>
+              <td>Wide World</td>
+              <td class="num" data-value="85">85</td>
+              <td class="num" data-value="83">83</td>
+              <td class="num" data-value="4.5">4.5</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td>Contoso</td>
+              <td class="num" data-value="79">79</td>
+              <td class="num" data-value="76">76</td>
+              <td class="num" data-value="4.1">4.1</td>
+              <td>Strong</td>
+            </tr>
+            <tr>
+              <td>Fabrikam</td>
+              <td class="num" data-value="74">74</td>
+              <td class="num" data-value="70">70</td>
+              <td class="num" data-value="3.8">3.8</td>
+              <td>Solid</td>
+            </tr>
+            <tr>
+              <td>Litware</td>
+              <td class="num" data-value="71">71</td>
+              <td class="num" data-value="68">68</td>
+              <td class="num" data-value="3.6">3.6</td>
+              <td>Solid</td>
+            </tr>
+            <tr>
+              <td>Proseware</td>
+              <td class="num" data-value="68">68</td>
+              <td class="num" data-value="64">64</td>
+              <td class="num" data-value="3.4">3.4</td>
+              <td>Fair</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Click a column header to sort. All brands and scores are fictional.</p>
+        <svg class="chart" id="score-chart" viewBox="0 0 520 160" role="img" aria-label="Bar chart of fictional satisfaction scores by brand">
+          <text class="label" x="0" y="22">Satisfaction</text>
+          <rect class="bar" x="0" y="32" width="410" height="14"></rect>
+          <text class="label" x="418" y="43">Wide World 85</text>
+          <rect class="bar" x="0" y="54" width="395" height="14"></rect>
+          <text class="label" x="403" y="65">Northwind 82</text>
+          <rect class="bar" x="0" y="76" width="381" height="14"></rect>
+          <text class="label" x="389" y="87">Contoso 79</text>
+          <rect class="bar" x="0" y="98" width="357" height="14"></rect>
+          <text class="label" x="365" y="109">Fabrikam 74</text>
+          <rect class="bar" x="0" y="120" width="342" height="14"></rect>
+          <text class="label" x="350" y="131">Litware 71</text>
+          <rect class="bar" x="0" y="142" width="328" height="14"></rect>
+          <text class="label" x="336" y="153">Proseware 68</text>
+        </svg>
+      </section>
+
+      <section class="widget" id="star-rating" data-score="4.3" aria-labelledby="rating-heading">
+        <h2 id="rating-heading">Service score</h2>
+        <div class="stars">
+          <div class="star-row" aria-hidden="true">
+            <div class="track">★★★★★</div>
+            <div class="fill">★★★★★</div>
+          </div>
+          <span class="score">4.3</span>
+          <span class="band">Strong</span>
+        </div>
+        <p class="note">A 4.3 service score maps to the Strong band. The fill is the score out of five.</p>
+        <ul class="legend">
+          <li>4.5 and up — Excellent</li>
+          <li>4.0 to 4.4 — Strong</li>
+          <li>3.5 to 3.9 — Solid</li>
+          <li>3.0 to 3.4 — Fair</li>
+          <li>Below 3.0 — Weak</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="widget comments" id="market-comments" aria-labelledby="comments-heading">
+      <h2 id="comments-heading">Market-wide comments</h2>
+      <p>Themes from a made-up comment set, not individual responses. Wait times at mid-sized brands came up often. Digital notifications were praised at Northwind and Wide World. Several comments asked for clearer fee explanations, and a smaller group wanted more self-serve tools for routine changes.</p>
+      <p>No respondent names or raw comment rows are shown. This box is a short theme summary only.</p>
+    </section>
+
+    <section class="widget analysis hide-in-export" id="page-analysis" aria-labelledby="analysis-heading">
+      <div class="widget-head">
+        <h2 id="analysis-heading">Per-page analysis</h2>
+        <label class="toggle no-print">
+          <input type="checkbox" id="hide-in-export">
+          Hide in export
+        </label>
+      </div>
+      <p>Q3 shows a tight cluster at the top of the table. Service scores above 4.0 line up with higher recommendation. Mid-table brands lag more on follow-through than on product range. This note is a worked example of analyst commentary and can be hidden when the page is exported.</p>
+    </section>
+
+    <div class="print-footer-rule">Demo with fictional data · Northwind Retail Banking Q3 Pulse</div>
+  </main>
+  <script src="demo.js"></script>
+</body>
+</html>
