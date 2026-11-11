@@ -23,7 +23,7 @@ In September 2025 I built and deployed this pipeline:
 - **Windows app to update feeds.** A desktop app lets an operator enable or disable brand tracking, regenerate alert feeds, update configuration, and trigger the cloud job without editing files by hand. It supports search, bulk updates, and dry-run or full runs, and can be built as a standalone executable.
 - **Mention dashboard.** A Python web dashboard (`rss_dashboard`) reads the BigQuery tables and shows feed performance, sentiment, industry breakdown, and search/filter views so analysts can inspect the warehouse without writing SQL every time.
 
-I used LLMs to classify and clean messy media-mention text before analysis.
+I implemented a priority-tiered LLM classification system with conditional logic on Gemini, which classifies and cleans messy media-mention text before analysis.
 
 I used AI pair programming with Cursor on this work.
 

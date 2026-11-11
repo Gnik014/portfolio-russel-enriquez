@@ -26,7 +26,7 @@ I build the layer between raw systems and decisions: BigQuery models, Tableau, a
 
 4) **Company work (private, case studies)**
    - Employer: KMC MAG Solutions (client: AMI). I contribute to the AMI portal (TypeScript/React digital reports), a Node/BigQuery MCP query layer (broker-survey, regulatory, and legal-sector survey datasets), and an internal pipeline-health / media / truth-comparison monitor.
-   - Related case studies also cover an ad/newsletter email capture pipeline, a media-mention RSS pipeline into BigQuery, analytics-engineering data pipelines, Tableau Cloud site administration, and a short “How I build at AMI” workflow note (GitHub flow, Actions, AgentOS specs, LangChain/LangSmith, Cloud Run).
+   - Related case studies also cover an ad/newsletter email capture pipeline, a media-mention RSS pipeline into BigQuery, analytics-engineering data pipelines, a Tableau Cloud PDF/PowerPoint export tool, a Tableau MCP server, a survey ETL into BigQuery, Tableau Cloud site administration, and a short “How I build at AMI” workflow note (GitHub flow, Actions, AgentOS specs, LangChain/LangSmith, Cloud Run).
    - Private repos are not shared. Anonymized case studies can be sent on request. No client or brand names, source, or internal URLs.
 
 5) **Side project (not the headline):** Skyward Tower — a Unity 6 3D action climber I built solo with AI pair programming. Short note: https://gnik014.github.io/portfolio-russel-enriquez/side-projects/skyward-tower.html (unreleased; no public repo).
@@ -58,6 +58,9 @@ These notes can be attached or quoted in outreach. They are not public product r
 | How I build at AMI | `portfolio/company-work/how-i-build.md` | Branch-to-staging-to-production workflow with Actions, Husky, AgentOS, and Cloud Run |
 | Tableau Cloud site admin | `portfolio/company-work/tableau-site-admin.md` | Structured workbook library, archives, source transitions, and Tableau-vs-query-layer checks |
 | Data pipelines | `portfolio/company-work/data-pipelines.md` | dbt-style layered BigQuery SQL, a survey-platform-to-warehouse pipeline, quality fixes, and rollback-safe deploys |
+| PDF Report Generator | `portfolio/company-work/pdf-report-generator.md` | Full-stack Tableau Cloud export of filtered dashboards to PDF, PowerPoint, or images |
+| Tableau MCP server | `portfolio/company-work/tableau-mcp.md` | MCP server for Tableau Cloud, used from Cursor, for discovery, view data, export, and extract refreshes |
+| Survey ETL pipeline | `portfolio/company-work/survey-etl.md` | Python ETL that extracts survey data, transforms it, and loads it to BigQuery |
 | Skyward Tower (personal side project) | `portfolio/side-projects/skyward-tower.md` | Solo Unity 6 3D action climber with a toy-diorama look; only the later v1.1.0 balance plan is still in the design phase |
 
 Do not send source or repo URLs. Employer line in every case study: **KMC MAG Solutions (client: AMI)**.
