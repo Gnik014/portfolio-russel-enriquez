@@ -1,0 +1,42 @@
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+**/secrets.yaml
+**/secrets.yml
+
+# Data dumps and local extracts
+*.csv
+*.xlsx
+*.xls
+*.hyper
+*.log
+*.jsonl
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+~$*
+*.tmp
+*.bak
+*.swp
+.vs/
+.idea/
+
+# Tableau lockfiles and local workbooks (may contain machine paths)
+*.twb
+*.twbx
+*.twbr
+
+# Internal planning, evidence, and local-only notes
+REMOTE-ROLE-30-DAY-PLAN.md
+BI-EVIDENCE.md
+portfolio/inventory.md
+portfolio/side-projects/
