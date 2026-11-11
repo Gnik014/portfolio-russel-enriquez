@@ -29,7 +29,7 @@ I build the layer between raw systems and decisions: BigQuery models, Tableau, a
    - Related case studies also cover an ad/newsletter email capture pipeline, a media-mention RSS pipeline into BigQuery, analytics-engineering data pipelines, Tableau Cloud site administration, and a short “How I build at AMI” workflow note (GitHub flow, Actions, AgentOS specs, LangChain/LangSmith, Cloud Run).
    - Private repos are not shared. Anonymized case studies can be sent on request. No client or brand names, source, or internal URLs.
 
-5) **Side project (not the headline):** Skyward Tower ? a Unity 6 3D action climber I built solo with AI pair programming. Short note: https://gnik014.github.io/portfolio-russel-enriquez/side-projects/skyward-tower.html (unreleased; no public repo).
+5) **Side project (not the headline):** Skyward Tower — a Unity 6 3D action climber I built solo with AI pair programming. Short note: https://gnik014.github.io/portfolio-russel-enriquez/side-projects/skyward-tower.html (unreleased; no public repo).
 
 6) **Outcome language**
    - Same pattern I use professionally: reliable warehouse refresh, decision-ready BI, and tooling that cuts repetitive analysis work.
