@@ -449,3 +449,84 @@ footer p:last-child { margin: 0; }
   .job, .card { padding: 1.1rem; }
   .flow-arrow { display: none; }
 }
+
+.systems-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  margin: 0 0 1.25rem;
+}
+.badge {
+  display: inline-block;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding: 0.15rem 0.45rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.badge-built {
+  background: var(--heading);
+  color: #ffffff;
+  border: 1px solid var(--heading);
+}
+.badge-progress {
+  background: var(--accent-soft);
+  color: var(--heading);
+  border: 1px solid var(--accent-soft);
+}
+.badge-planned {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.system-cat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.system-cat > summary {
+  cursor: pointer;
+  color: var(--heading);
+  font-family: Georgia, "Times New Roman", Palatino, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.05rem;
+  list-style-position: outside;
+  margin-left: 1.05rem;
+  padding-left: 0.35rem;
+}
+.system-cat > summary:hover { color: var(--accent-deep); }
+.system-cat[open] > summary {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+.system-list { padding: 0.85rem 1.15rem 1.1rem; }
+.systems-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.system { margin: 0 0 1rem; }
+.system:last-child { margin-bottom: 0; }
+.system-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.6rem;
+}
+.system-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: Georgia, "Times New Roman", Palatino, serif;
+}
+.system p {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
